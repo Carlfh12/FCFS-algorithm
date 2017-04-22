@@ -1,0 +1,57 @@
+body{
+font-family: helvetica;
+font-size: 15px;
+}
+#InitialContainer{
+	border: 2px solid;
+	display: inline-flex;
+	margin: 5px;
+}
+
+#mainContainer{
+	display: inline-flex;
+}
+
+#SecondContainer{
+	border: 2px solid;
+	display: inline-flex;
+	margin: 5px;
+}
+
+#Grandcontainer{
+	display: inline-flex;
+}
+
+#grant{
+	padding: 5px;
+	border: 1px solid;
+}
+
+#processNum{
+	margin: 5px;
+	display: inline-grid;
+}
+#processRaf{
+	display: inline-grid;
+	margin: 5px;
+}
+#processTll{
+	display: inline-grid;
+	margin: 5px;
+}
+#processTe{
+	display: inline-grid;
+	margin: 5px;
+}
+#processTr{
+	display: inline-grid;
+	margin: 5px;
+}
+
+#processRaf input,#processTll input{
+	height: 20px;
+}
+
+.inp{
+	margin: 3px;
+}
