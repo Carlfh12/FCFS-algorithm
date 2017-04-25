@@ -10,15 +10,20 @@ var trpromRes
 var getName= []
 var getTllega= []
 var getTraf= []
+var getPrior=[]
 var valid
 var isName = /^[a-z\d_]{3,15}$/i;
 var isValues =/(?:\d*\.)?\d+/i;
+var checkmethod
+var pivot= []
+var checkcontinue
 
 //add event
 $("#add").click(function(){
 	$("#processNum").append("<input class=inp id=proceso"+ cont +">")
 	$("#processRaf").append("<input class=inp id=raf"+ cont +">")
 	$("#processTll").append("<input class=inp id=tll"+ cont +">")
+	$("#processPrior").append("<input class=inp id=prior"+ cont +">")
 
 	cont = cont + 1
 });
@@ -28,13 +33,14 @@ $("#add").click(function(){
 $("#calculate").click(function(){
 
 //asignment validate values	
-for (var a = 0 ; a < cont; a++) {
-getName[a] = document.getElementById("proceso"+a).value;
-getTllega[a] = document.getElementById("tll"+ a).value;
-getTraf[a] = document.getElementById("raf"+ a).value;
+for (var i = 0 ; i < cont; i++) {
+getName[i] = document.getElementById("proceso"+i).value;
+getTllega[i] = document.getElementById("tll"+ i).value;
+getTraf[i] = document.getElementById("raf"+ i).value;
+getPrior[i] = document.getElementById("prior"+ i).value;
 }
-for (var p = 0 ; p < cont; p++) {
-	if (!isName.test(getName[p]) || !isValues.test(getTllega[p]) || !isValues.test(getTraf[p])) {
+for (var i = 0 ; i < cont; i++) {
+	if (!isName.test(getName[i]) || !isValues.test(getTllega[i]) || !isValues.test(getTraf[i]) || !isValues.test(getPrior[i]) ) {
 		valid = false;
 		break;
 	}else{
@@ -52,32 +58,126 @@ for (var i = 0 ; i < cont; i++) {
 		"name":getName[i],	
 		"Tllega":getTllega[i],
 		"Traf":getTraf[i],
+		"Tprior":getPrior[i],
 		"Te":document.getElementById("tee"+ i),
 		"Tr":document.getElementById("trr"+ i)
 	}
 }
 //assignment values end
 
-//sort function
+//sort functions
 function sortByTllega(elem1, elem2) {return eval(elem1.Tllega) > eval(elem2.Tllega);}
+function sortByTraf(elem1,elem2) {return eval(elem1.Traf) > eval(elem2.Traf);}
+function sortByTprior(elem1,elem2) {return eval(elem1.Tprior) > eval(elem2.Tprior);}
+//end sort functions
+
+// 0 locates
+	for (var i = 0; i < cont; i++) {
+		if(eval(procesos[i].Tllega) == 0){
+			checkmethod = true;
+			break;
+		}else{
+			checkmethod = false;
+			continue;
+		}
+	}
+	// end 0 locates
+
+	//check continue if all be 0
+	for (var i = 0; i < cont; i++) {
+		if(eval(procesos[i].Tllega) != 0){
+			checkcontinue = false;
+			break;
+		}else{
+			checkcontinue = true;
+			continue;
+		}
+	}//end checkcontine if all be 0
+
+//choose checkmethod
+if ($('#FCFS').prop('checked')) {
+//FCFS sort function
 procesos.sort(sortByTllega)
-console.log(procesos)
-//end sort function
+//end FCFS sort function
+}else if($('#SJF').prop('checked')){
+	// SJF Sort
+	
+//way if all be 0
+if (checkcontinue == false) {
+
+	// way if just one 0 exist or not
+	if (checkmethod == true) {
+		procesos.sort(sortByTllega)
+		for (var i = 0; i < cont; i++) {
+			pivot[i]=procesos[i]
+		}
+		pivot.splice(0,1);
+		pivot.sort(sortByTraf)
+		for (var i = 0; i < pivot.length; i++) {
+			procesos[i+1]=pivot[i]	
+		}
+
+	}else{
+		// sort by raf time
+		procesos.sort(sortByTraf)
+		console.log(checkmethod)
+		// sort by raf time
+	}
+	//end way if just exist one
+}else{
+		procesos.sort(sortByTraf)
+		console.log(checkmethod)
+}
+//end if all be 0
+}else if($('#priority').prop('checked')){
+
+	// Priority Sort
+//way if all be 0
+if (checkcontinue == false) {
+
+	// way if just one 0 exist or not
+	if (checkmethod == true) {
+		procesos.sort(sortByTllega)
+		for (var i = 0; i < cont; i++) {
+			pivot[i]=procesos[i]
+		}
+		pivot.splice(0,1);
+		pivot.sort(sortByTprior)
+		for (var i = 0; i < pivot.length; i++) {
+			procesos[i+1]=pivot[i]	
+		}
+
+	}else{
+		// sort by prior time
+		procesos.sort(sortByTprior)
+		console.log(checkmethod)
+		// sort by prior time
+	}
+	//end way if just exist one
+}else{
+		procesos.sort(sortByTprior)
+		console.log(checkmethod)
+}
+//end if all be 0
+
+}
+//end choose checkmethod
+
 
 //calculate second function
 lasto = eval(procesos[0].Tllega)
-for (var u = 0; u < cont; u++) {
+for (var i = 0; i < cont; i++) {
 	
-bento = lasto - eval(procesos[u].Tllega)
+bento = lasto - eval(procesos[i].Tllega)
 	//grant diagram
 	$("#Grandcontainer").append("<output id=grant>"+lasto+"</output>")
-	$("#Grandcontainer").append("<output id=grant>"+procesos[u].name+"</output>")
+	$("#Grandcontainer").append("<output id=grant>"+procesos[i].name+"</output>")
 	//end grant diagram
-lasto= lasto + eval(procesos[u].Traf)
-procesos[u].Te = bento
-procesos[u].Tr = lasto
-$("#processTe").append("<output id=tee"+ u +"> tiempo de espera para "+procesos[u].name +"  "+ procesos[u].Te +"</output>")
-$("#processTr").append("<output id=trr"+ u +"> tiempo de respuesta para "+procesos[u].name +"  "+ procesos[u].Tr +"</output>")
+lasto= lasto + eval(procesos[i].Traf)
+procesos[i].Te = bento
+procesos[i].Tr = lasto
+$("#processTe").append("<output id=tee"+ i +"> tiempo de espera para "+procesos[i].name +"  "+ procesos[i].Te +"</output>")
+$("#processTr").append("<output id=trr"+ i +"> tiempo de respuesta para "+procesos[i].name +"  "+ procesos[i].Tr +"</output>")
 }
 //calculate second function
 
@@ -86,9 +186,9 @@ $("#Grandcontainer").append("<output id=grant>"+lasto+"</output>")
 //end last grant line
 
 //calculate proms
-for (var s = 0; s < cont; s++) {
-	teprom = teprom + eval(procesos[s].Te)
-	trprom = trprom + eval(procesos[s].Tr)
+for (var i = 0; i < cont; i++) {
+	teprom = teprom + eval(procesos[i].Te)
+	trprom = trprom + eval(procesos[i].Tr)
 
 }
 trpromRes = trprom/cont

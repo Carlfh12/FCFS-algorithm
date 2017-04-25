@@ -35,6 +35,10 @@ font-size: 15px;
 	display: inline-grid;
 	margin: 5px;
 }
+#processPrior{
+	display: inline-grid;
+	margin: 5px;
+}
 #processTll{
 	display: inline-grid;
 	margin: 5px;

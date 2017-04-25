@@ -10,9 +10,10 @@
 <div id="mainContainer">
 	
 <div id="InitialContainer">	
-<div id="processNum">Numero de proceso</div>
+<div id="processNum">Nonmbre de proceso</div>
 <div id="processRaf">Tiempo de rafaga</div>
 <div id="processTll">Tiempo de Llegada</div>
+<div id="processPrior">Prioridad</div>
 </div>
 <div id="SecondContainer">
 <div id="processTe">Tiempos de espera</div>
@@ -26,6 +27,22 @@
 <div id="Grandcontainer">
 	
 </div>
+
+ <div class="container-field-type__options">
+    <label for="FCFS">FCFS</label>
+    <input type="radio" id="FCFS" name="field_type">
+</div><!--end container-field-type__options -->
+
+<div class="container-field-type__options">
+    <label for="SJF">SJF</label>
+	<input type="radio" id="SJF" name="field_type">
+</div>
+
+<div class="container-field-type__options">
+    <label for="Prioridad">Prioridad</label>
+	<input type="radio"  id="priority" name="field_type">
+</div>
+
 <button id="add">agregar</button>
 <button id="calculate">calcular</button>
 </body>
