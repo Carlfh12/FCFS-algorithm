@@ -5,45 +5,76 @@
 	<script type="text/javascript" src="jquery-2.1.3.min.js"></script>
 	<script type="text/javascript" src="main.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script>
+		var qu = false;
+		function removeQuantum (){
+			if (qu == true){
+				$("#quant").remove() 
+				qu = false
+			}
+		}
+		function addQuantum (){
+			if (qu == false) {
+			$("#mainContainer").append("<input class=inp id=quant>")
+			qu = true
+			}
+		}
+	</script>
 </head>
 <body>
 <div id="mainContainer">
 	
 <div id="InitialContainer">	
-<div id="processNum">Nonmbre de proceso</div>
-<div id="processRaf">Tiempo de rafaga</div>
-<div id="processTll">Tiempo de Llegada</div>
-<div id="processPrior">Prioridad</div>
-</div>
-<div id="SecondContainer">
-<div id="processTe">Tiempos de espera</div>
-<div id="processTr">Tiempos de respuesta</div>
-</div>
-
-</div>
-<div id="thirtContainer">	
-</div>
-
-<div id="Grandcontainer">
 	
+<div class="firsttitle" id="processNum"><p> proceso</p></div>
+<div class="firsttitle" id="processRaf"><p>Tiempo de rafaga</p></div>
+<div class="firsttitle" id="processTll"><p>Tiempo de Llegada</p></div>
+<div class="firsttitle" id="processPrior"><p>Prioridad</p></div>
+
+</div>	
 </div>
 
+<div id="SecondContainer">
+<div class="Secondtitle" id="processTe"><p>Tiempos de espera</p></div>
+<div class="Secondtitle" id="processTr"><p>Tiempos de respuesta</p></div>
+</div>
+
+<div id="thirtContainer"></div>
+
+<div id="Grandcontainer"></div>
+
+<section id="options">
  <div class="container-field-type__options">
     <label for="FCFS">FCFS</label>
-    <input type="radio" id="FCFS" name="field_type">
+     <label class="check1">
+    <input type="radio" onclick="removeQuantum()"  id="FCFS" name="field_type" checked>
+   </label>
 </div><!--end container-field-type__options -->
 
 <div class="container-field-type__options">
     <label for="SJF">SJF</label>
-	<input type="radio" id="SJF" name="field_type">
+    <label class="check2">
+	<input type="radio" onclick="removeQuantum()"  id="SJF" name="field_type">	
+    </label>
 </div>
 
 <div class="container-field-type__options">
-    <label for="Prioridad">Prioridad</label>
-	<input type="radio"  id="priority" name="field_type">
+    <label for="priority">Prioridad</label>
+    <label class="check3">
+	<input type="radio" onclick="removeQuantum()"  id="priority" name="field_type">
+	</label>
 </div>
 
+<div class="container-field-type__options">
+    <label for="Round">Round robin</label>
+     <label class="check4">
+	<input type="radio"  onclick="addQuantum()" id="Round" name="field_type">
+	</label>
+</div>
+</section>
 <button id="add">agregar</button>
 <button id="calculate">calcular</button>
+<button id="eliminate">Eliminar</button>
 </body>
 </html>
