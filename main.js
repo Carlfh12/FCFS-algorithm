@@ -191,11 +191,13 @@ if ($('#FCFS').prop('checked')) {
 			i=0;		
 		}
 	}
+	pivot.sort(sortByTllega)
 	if (pivot.length === pivot2.length) {
 		procesos=[]
-	}
-	pivot.sort(sortByTllega)
+		procesos=pivot.slice()
+	}else{	
 	procesos = pivot.concat(pivot2)
+	}
 	pivot = []
 	pivot2=[]
 
