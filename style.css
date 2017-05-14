@@ -51,15 +51,21 @@ button:hover{
 	display: inline-flex;
 	margin: 5px;
 	background-color: #EBEFEE;
+	position: absolute;
+}
+
+#SecondContainer p{
+	margin: 5px;
 }
 
 #SecondContainer output{
 	margin: 5px;
-	border-bottom: 1px solid;
+	
 }
 
 #Grandcontainer{
 	display: inline-flex;
+	box-shadow: 2px 5px 2px;
 }
 
 #grantl, #grantn{
@@ -82,11 +88,17 @@ button:hover{
 .Secondtitle{
 	margin: 5px;
 	display: inline-grid;
+    width: 96%;
 }
 
-#processRaf input,#processTll input{
+#processTe{
+	border-right: 1px solid;
+}
+
+#InitialContainer input{
 	height: 20px;
 }
+
 
 .inp{
 	margin: 3px;
@@ -135,4 +147,12 @@ button:hover{
 .check4{
 	border-left: 1px solid;
 	margin-left: 1px ;
+}
+
+#options div:hover{
+background-color:  #DFE4E2;
+}
+
+#options div:focus{
+background-color:  #DFE4E2;
 }

@@ -20,8 +20,29 @@ var isName = /^[a-z\d_]{3,15}$/i;
 var isValues =/(?:\d*\.)?\d+/i;
 var checkmethod
 /*var checkcontinue*/
-//add event
 
+function reset(){
+	$(".Secondtitle").empty();	
+	$("#thirtContainer").empty();
+	$("#Grandcontainer").empty();
+	 pivot= []
+	 pivot2 = [] 
+	 valid=false;
+	 pivot= []
+	 pivot2 = []
+	 bento = 0
+	 teprom = 0
+	 trprom = 0
+	 contador=0
+	 contador2 = 0
+	 lasto
+	 tepromRes
+	 trpromRes
+
+	
+}
+
+//add event
 $("#add").click(function(){
 	$("#processNum").append("<input class=inp id=proceso"+ cont +">")
 	$("#processRaf").append("<input class=inp id=raf"+ cont +">")
@@ -43,8 +64,11 @@ $("#eliminate").click(function(){
 })
 //end eliminate event
 
+
 //calculate event
 $("#calculate").click(function(){
+	reset()
+	
 if (qu == true) {
 	console.log("acti")
 }else{
@@ -175,7 +199,7 @@ if ($('#FCFS').prop('checked')) {
 	pivot = []
 	pivot2=[]
 
-// en check if someone shoked
+// end check if someone shoked
 
 
 		// way if just one 0 exist or not
@@ -251,8 +275,8 @@ for (var i = 0; i < cont; i++) {
 trpromRes = trprom/cont
 tepromRes = teprom/cont
 
-$("#thirtContainer").append("<p>el tiempo de espera promedio es de "+tepromRes+" ms</p>")
-$("#thirtContainer").append("<p>el tiempo de respuesta promedio es de "+trpromRes+" ms</p>")
+$("#thirtContainer").append("<p id=resum>el tiempo de espera promedio es de "+tepromRes+" ms</p>")
+$("#thirtContainer").append("<p id=resum>el tiempo de respuesta promedio es de "+trpromRes+" ms</p>")
 //end calculate proms
 }// end como operar segun el algortimo
 
