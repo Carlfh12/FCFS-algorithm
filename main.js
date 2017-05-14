@@ -196,7 +196,7 @@ if ($('#FCFS').prop('checked')) {
 		procesos=[]
 		procesos=pivot.slice()
 	}else{	
-	procesos = pivot.concat(pivot2)
+	procesos = procesos.concat(pivot)
 	}
 	pivot = []
 	pivot2=[]
