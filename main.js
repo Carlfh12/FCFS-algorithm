@@ -46,9 +46,9 @@ function reset(){
 //add event
 $("#add").click(function(){
 	$("#processNum").append("<input class=inp id=proceso"+ cont +">")
-	$("#processRaf").append("<input class=inp id=raf"+ cont +">")
-	$("#processTll").append("<input class=inp id=tll"+ cont +">")
-	$("#processPrior").append("<input class=inp id=prior"+ cont +">")
+	$("#processRaf").append("<input type=number class=inp id=raf"+ cont +">")
+	$("#processTll").append("<input type=number class=inp id=tll"+ cont +">")
+	$("#processPrior").append("<input type=number class=inp id=prior"+ cont +">")
 
 	cont = cont + 1
 });
