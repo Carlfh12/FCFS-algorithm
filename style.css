@@ -51,7 +51,7 @@ button:hover{
 	display: inline-flex;
 	margin: 5px;
 	background-color: #EBEFEE;
-	position: absolute;
+	position: relative;
 }
 
 #SecondContainer p{

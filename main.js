@@ -19,6 +19,7 @@ var pivot2 = []
 var isName = /^[a-z\d_]{3,15}$/i;
 var isValues =/(?:\d*\.)?\d+/i;
 var checkmethod
+var tim 
 /*var checkcontinue*/
 
 function reset(){
@@ -115,9 +116,12 @@ for (var i = 0 ; i < cont; i++) {
 		"name":getName[i],	
 		"Tllega":getTllega[i],
 		"Traf":getTraf[i],
+		"TrafPivo":getTraf[i],
 		"Tprior":getPrior[i],
 		"Te":document.getElementById("tee"+ i),
-		"Tr":document.getElementById("trr"+ i)
+		"Tr":document.getElementById("trr"+ i),
+		"Tfna":0,
+		"Tian":0
 	}
 }
 //assignment values end
@@ -132,6 +136,11 @@ function sortByTprior(elem1,elem2) {return eval(elem1.Tprior) > eval(elem2.Tprio
 	function grant (){	
 	$("#Grandcontainer").append("<output id=grantl>"+lasto+"</output>")
 	$("#Grandcontainer").append("<output id=grantn>"+procesos[i].name+"</output>")
+	}
+
+	function grantRobin (){	
+	$("#Grandcontainer").append("<output id=grantl>"+lasto+"</output>")
+	$("#Grandcontainer").append("<output id=grantn>"+pivot2[i].name+"</output>")
 	}
 	//end grant diagram
 
@@ -241,7 +250,65 @@ if ($('#FCFS').prop('checked')) {
 //end choose checkmethod
 
 // como operar segun el algortimo
+
+lasto = eval(procesos[0].Tllega)
 if($('#Round').prop('checked')){
+	pivot2 = procesos.slice()
+	eval(quantum);
+if (quantum == 0) {
+	for (var i = 0; i < pivot2.length; i++) {
+		grant()
+		lasto= lasto + eval(pivot2[i].Traf)
+	}
+}else{
+
+while (pivot.length != procesos.length){
+
+		for (var i = 0; i < pivot2.length; i++) {
+			if (eval(pivot2[i].Traf) <= eval(quantum) ) {
+				pivot2[i].Tian = lasto
+				if (pivot2[i].Traf == 0) {
+					break;
+				}
+				grantRobin()
+				lasto= lasto + eval(pivot2[i].Traf)
+				pivot2[i].Tfna = lasto
+				pivot2[i].Traf = 0
+			
+			}else{
+				pivot2[i].Traf = pivot2[i].Traf - quantum
+				pivot2[i].Tian = lasto
+				grantRobin()
+				pivot2[i].Tfna = lasto
+				lasto = lasto + eval(quantum)
+			}
+		}
+
+		for (var u = 0; u < pivot2.length; u++) {
+			if (pivot2[u].Traf == 0) {
+				pivot[contador] = pivot2[u]
+				contador++
+				pivot2.splice(u,1)
+			}
+		}
+
+	
+}
+	
+}
+console.log(procesos.length)
+
+for (var z = 0; z < pivot.length; z++) {
+	pivot[z].Te = pivot[z].Tfna - pivot[z].Tllega - pivot[z].TrafPivo
+	pivot[z].Tr = pivot[z].Tfna - pivot[z].Tllega
+}
+procesos = pivot.slice()
+console.log(procesos.length)
+for (var current = 0; current < cont; current++) {
+	
+	$("#processTe").append("<output id=tee> "+procesos[current].name +" = "+ procesos[current].Te +"</output>")
+	$("#processTr").append("<output id=trr> "+procesos[current].name +" = "+ procesos[current].Tr +"</output>")
+}
 
 
 
@@ -249,7 +316,6 @@ if($('#Round').prop('checked')){
 }else{
 
 //calculate second function
-lasto = eval(procesos[0].Tllega)
 for (var i = 0; i < cont; i++) {
 	
 	bento = lasto - eval(procesos[i].Tllega)
@@ -262,6 +328,7 @@ for (var i = 0; i < cont; i++) {
 }
 //calculate second function
 
+}// end como operar segun el algortimo
 
 
 //last grant line
@@ -280,7 +347,6 @@ tepromRes = teprom/cont
 $("#thirtContainer").append("<p id=resum>el tiempo de espera promedio es de "+tepromRes+" ms</p>")
 $("#thirtContainer").append("<p id=resum>el tiempo de respuesta promedio es de "+trpromRes+" ms</p>")
 //end calculate proms
-}// end como operar segun el algortimo
 
 }else{
 	console.log("nope")
