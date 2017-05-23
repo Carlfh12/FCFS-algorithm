@@ -48,7 +48,7 @@ button:hover{
 
 #SecondContainer{
 	border: 1px solid;
-	display: inline-flex;
+	display: none;
 	margin: 5px;
 	background-color: #EBEFEE;
 	position: relative;
@@ -66,6 +66,8 @@ button:hover{
 #Grandcontainer{
 	display: inline-flex;
 	box-shadow: 2px 5px 2px;
+	overflow-x: auto;
+    max-width: 80%;
 }
 
 #grantl, #grantn{

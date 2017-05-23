@@ -68,6 +68,7 @@ $("#eliminate").click(function(){
 
 //calculate event
 $("#calculate").click(function(){
+
 	reset()
 	
 if (qu == true) {
@@ -110,6 +111,7 @@ for (var i = 0 ; i < cont; i++) {
 
 
 if (valid == true) {
+document.getElementById("SecondContainer").style.display = "inline-flex";
 for (var i = 0 ; i < cont; i++) {
 //assignment values
 	procesos[i] = {
