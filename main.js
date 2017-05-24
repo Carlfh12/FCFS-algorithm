@@ -49,7 +49,7 @@ function reset(){
 
 //add event
 $("#add").click(function(){
-	$("#tble").append("<tr><td><input class=inp id=proceso"+ cont +"></td><td><input type=number class=inp id=raf"+ cont +"></td><td><input type=number class=inp id=tll"+ cont +"></td> <td><input type=number class=inp id=prior"+ cont +"></td></tr>")
+	$("#tble").append("<tr id=tr-id"+cont+"><td><input class=inp id=proceso"+ cont +"></td><td><input type=number class=inp id=raf"+ cont +"></td><td><input type=number class=inp id=tll"+ cont +"></td> <td><input type=number class=inp id=prior"+ cont +"></td></tr>")
 	cont = cont + 1
 });
 //end add event
@@ -57,10 +57,7 @@ $("#add").click(function(){
 //eliminate event
 $("#eliminate").click(function(){
 	cont = cont - 1
-	$("#proceso"+cont).remove();
-	$("#raf"+cont).remove();
-	$("#tll"+cont).remove();
-	$("#prior"+cont).remove();
+	$("#tr-id"+cont).remove();
 
 })
 //end eliminate event

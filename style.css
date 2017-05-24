@@ -20,13 +20,13 @@ button{
 
 }
 button:hover{
-	background: rgba(255, 0, 0, 0.62);
+	background: #444B4E;
 
     color: white;
 }
 
  button:focus {
-    background: rgba(255, 0, 0, 0.62);
+    background: #444B4E;
     color: white;
   }
 
@@ -59,15 +59,14 @@ button:hover{
 }*/
 
 #grantl{
-	background-color: red;
-	color: white;
+	background-color: #D6DAD9;
 }
 
 
 
 .wrap-principals,.wrap-Seconds {
-	background-color: red;
-	color: white;
+	background-color:#D6DAD9;
+
 }
 
 
