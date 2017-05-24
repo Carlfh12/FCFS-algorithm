@@ -16,7 +16,7 @@
 		}
 		function addQuantum (){
 			if (qu == false) {
-			$("#InitialContainer").append("<input type=number class=inp id=quant placeholder=Quantum>")
+			$("#mainContainer").append("<input type=number class=inp id=quant placeholder=Quantum>")
 			qu = true
 			}
 		}
@@ -25,30 +25,37 @@
 <body>
 <div id="mainContainer">
 	
-<div id="InitialContainer">	
-	
-<div class="firsttitle" id="processNum"><p> proceso</p></div>
-<div class="firsttitle" id="processRaf"><p>Tiempo de rafaga</p></div>
-<div class="firsttitle" id="processTll"><p>Tiempo de Llegada</p></div>
-<div class="firsttitle" id="processPrior"><p>Prioridad</p></div>
-
+<table id=tble  class="tble-striped"> 
+	<thead>
+	<tr class="wrap-principals">
+		<th id="processNum">proceso</th>
+		<th id="processRaf">Tiempo de rafaga</th>
+		<th id="processTll">Tiempo de Llegada</th>
+		<th id="processPrior">Prioridad</th>
+	</tr>
+	</thead>
+</table>
 </div>	
-</div>
+
+<h3 id="results1">Diagrama.</h3>
+<div id="Grandcontainer"></div>
 
 <div id="SecondContainer">
-<div>
-<p>Tiempos de espera</p>	
-<div class="Secondtitle" id="processTe"></div>
-</div>
-<div>
-<p>Tiempos de respuesta</p>	
-<div class="Secondtitle" id="processTr"></div>
-</div>
+<h3>Resultados.</h3>
+<table id=tble-second  class="tble-striped"> 
+	<thead>
+	<tr class="wrap-Seconds">
+		<th id="processNum">proceso</th>
+		<th id="processTe">Tiempo de espera</th>
+		<th id="processTr">Tiempo de respuesta</th>
+	</tr>
+	</thead>
+</table>
 </div>
 
+<h3 id="results2">Promedios.</h3>
 <div id="thirtContainer"></div>
 
-<div id="Grandcontainer"></div>
 
 <section id="options">
  <div class="container-field-type__options">

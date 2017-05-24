@@ -1,9 +1,12 @@
 body{
-font-family: helvetica;
+font-family: Verdana,sans-serif;
 font-size: 15px;
+line-height: 1.5;
 }
+
 button{
-  border: 1px solid white;
+  font-family: Verdana,sans-serif;
+  border: 1px solid;
   border-radius: 3px;
   text-align: center;
   padding: 10px;
@@ -11,121 +14,103 @@ button{
   text-decoration: none;
   transition: all 0.25s;
   margin-top: 15px;
+  background:#f1f1f1;
 
   
 
 }
 button:hover{
-	background: #444B4E;
-    border-color: #444B4E;
+	background: rgba(255, 0, 0, 0.62);
+
     color: white;
 }
 
  button:focus {
-    background: #444B4E;
-    border-color: #444B4E;
+    background: rgba(255, 0, 0, 0.62);
     color: white;
   }
 
-#InitialContainer{
-	border: 1px solid;
-	display: inline-flex;
-	margin: 5px;
-	background-color: #EBEFEE;
+#tble, #tble-second {
+	border-collapse: collapse !important;
 }
 
-#InitialContainer p{
-	text-align: center;
-	width: 100%
-	margin:0px;
-	
-}
-
-
-#mainContainer{
-	display: inline-flex;
-}
 
 #SecondContainer{
-	border: 1px solid;
 	display: none;
-	margin: 5px;
-	background-color: #EBEFEE;
-	position: relative;
+	margin-top: 25px;
 }
-
-#SecondContainer p{
-	margin: 5px;
+#results1, #results2{
+	display: none;
 }
-
-#SecondContainer output{
-	margin: 5px;
-	
-}
-
 #Grandcontainer{
 	display: inline-flex;
-	box-shadow: 2px 5px 2px;
+	box-shadow: 0px 1px 4px;
 	overflow-x: auto;
     max-width: 80%;
 }
 
 #grantl, #grantn{
 	padding: 5px;
-	border: 1px solid;
+	border: 1px;
 }
 
-#grantn{
+/*#grantn{
 	background-color: #EBEFEE;
-}
+}*/
 
 #grantl{
-	background-color: #DFE4E2;
+	background-color: red;
+	color: white;
 }
 
-.firsttitle{
-	margin: 5px;
-	display: inline-grid;
-}
-.Secondtitle{
-	margin: 5px;
-	display: inline-grid;
-    width: 96%;
+
+
+.wrap-principals,.wrap-Seconds {
+	background-color: red;
+	color: white;
 }
 
-#processTe{
-	border-right: 1px solid;
+
+#tble th, #tble-second th{
+	padding: 8px 8px;
+
 }
 
-#InitialContainer input{
-	height: 20px;
+#tble-second tr{
+	text-align: center;
 }
 
+.tble-striped tbody tr:nth-child(even),.tble-striped tbody tr:nth-child(even) input{
+	background-color:#f1f1f1 !important
+}
 
 .inp{
-	margin: 3px;
+	margin: 5px;
+	margin-bottom:auto;
 	text-align: center;
 	border:none;
-	transition: all 0.25s;
-	border: 1px solid white;
-  	border-radius: 3px;
+	transition: all 0.08s;
+	border-bottom: 1px solid;
 	
 }
 
-.inp:hover{
+/*.inp:hover{
 	background-color:  #DFE4E2;
-	border-color: white;
-}
+	font-size: 14px;
+}*/
 
 .inp:focus{
-	background-color:  #DFE4E2;
-	border-color: white;
+	/*background-color:  #DFE4E2;*/
+	font-size: 14px;
+
 }
 
 #options{
+	font-family: helvetica;
 	background-color:  #EBEFEE;
 	width: 120px;
 	margin-top: 15px;
+
 }
 
 #options div{

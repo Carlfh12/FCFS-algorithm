@@ -23,7 +23,11 @@ var tim
 /*var checkcontinue*/
 
 function reset(){
-	$(".Secondtitle").empty();	
+	for (var o = 0; o < procesos.length; o++) {
+		$("#tee").remove()
+		$("#trr").remove()
+		$("#tnn").remove()
+	}
 	$("#thirtContainer").empty();
 	$("#Grandcontainer").empty();
 	 pivot= []
@@ -45,11 +49,7 @@ function reset(){
 
 //add event
 $("#add").click(function(){
-	$("#processNum").append("<input class=inp id=proceso"+ cont +">")
-	$("#processRaf").append("<input type=number class=inp id=raf"+ cont +">")
-	$("#processTll").append("<input type=number class=inp id=tll"+ cont +">")
-	$("#processPrior").append("<input type=number class=inp id=prior"+ cont +">")
-
+	$("#tble").append("<tr><td><input class=inp id=proceso"+ cont +"></td><td><input type=number class=inp id=raf"+ cont +"></td><td><input type=number class=inp id=tll"+ cont +"></td> <td><input type=number class=inp id=prior"+ cont +"></td></tr>")
 	cont = cont + 1
 });
 //end add event
@@ -111,7 +111,10 @@ for (var i = 0 ; i < cont; i++) {
 
 
 if (valid == true) {
-document.getElementById("SecondContainer").style.display = "inline-flex";
+document.getElementById("SecondContainer").style.display = "block";
+document.getElementById("results1").style.display = "block";
+document.getElementById("results2").style.display = "block";
+
 for (var i = 0 ; i < cont; i++) {
 //assignment values
 	procesos[i] = {
@@ -298,21 +301,16 @@ while (pivot.length != procesos.length){
 }
 	
 }
-console.log(procesos.length)
 
 for (var z = 0; z < pivot.length; z++) {
 	pivot[z].Te = pivot[z].Tfna - pivot[z].Tllega - pivot[z].TrafPivo
 	pivot[z].Tr = pivot[z].Tfna - pivot[z].Tllega
 }
 procesos = pivot.slice()
-console.log(procesos.length)
 for (var current = 0; current < cont; current++) {
 	
-	$("#processTe").append("<output id=tee> "+procesos[current].name +" = "+ procesos[current].Te +"</output>")
-	$("#processTr").append("<output id=trr> "+procesos[current].name +" = "+ procesos[current].Tr +"</output>")
+	$("#tble-second").append("<tr><td id=tnn> "+procesos[current].name +" </td><td id=tee>"+ procesos[current].Te +"</td> <td id=trr>"+ procesos[current].Tr +"</td></tr>")
 }
-
-
 
 	
 }else{
@@ -325,8 +323,7 @@ for (var i = 0; i < cont; i++) {
 	lasto= lasto + eval(procesos[i].Traf)
 	procesos[i].Te = bento
 	procesos[i].Tr = lasto
-	$("#processTe").append("<output id=tee> "+procesos[i].name +" = "+ procesos[i].Te +"</output>")
-	$("#processTr").append("<output id=trr> "+procesos[i].name +" = "+ procesos[i].Tr +"</output>")
+	$("#tble-second").append("<tr><td id=tnn> "+procesos[i].name +" </td><td id=tee>"+ procesos[i].Te +"</td> <td id=trr>"+ procesos[i].Tr +"</td></tr>")
 }
 //calculate second function
 
