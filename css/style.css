@@ -1,0 +1,146 @@
+body{
+font-family: Verdana,sans-serif;
+font-size: 15px;
+line-height: 1.5;
+}
+
+button{
+  font-family: Verdana,sans-serif;
+  border: 1px solid;
+  border-radius: 3px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s;
+  margin-top: 15px;
+  background:#f1f1f1;
+
+  
+
+}
+button:hover{
+	background: #4D7BB4;
+
+    color: white;
+}
+
+ button:focus {
+    background: #4D7BB4;
+    color: white;
+  }
+
+#tble, #tble-second {
+	border-collapse: collapse !important;
+}
+
+
+#SecondContainer{
+	display: none;
+	margin-top: 25px;
+}
+#results1, #results2{
+	display: none;
+}
+#Grandcontainer{
+	display: inline-flex;
+	box-shadow: 0px 1px 4px;
+	overflow-x: auto;
+    max-width: 80%;
+}
+
+#grantl, #grantn{
+	padding: 5px;
+	border: 1px;
+}
+
+/*#grantn{
+	background-color: #EBEFEE;
+}*/
+
+#grantl{
+	background-color: #6C9FDE;
+	color:white;
+}
+
+
+
+.wrap-principals,.wrap-Seconds {
+	background-color:#6C9FDE;
+	color:white;
+
+}
+
+
+#tble th, #tble-second th{
+	padding: 8px 8px;
+
+}
+
+#tble-second tr{
+	text-align: center;
+}
+
+.tble-striped tbody tr:nth-child(even),.tble-striped tbody tr:nth-child(even) input{
+	background-color:#f1f1f1 !important
+}
+
+.inp{
+	margin: 5px;
+	margin-bottom:auto;
+	text-align: center;
+	border:none;
+	transition: all 0.08s;
+	border-bottom: 1px solid;
+	
+}
+
+/*.inp:hover{
+	background-color:  #DFE4E2;
+	font-size: 14px;
+}*/
+
+.inp:focus{
+	/*background-color:  #DFE4E2;*/
+	font-size: 14px;
+
+}
+
+#options{
+	font-family: helvetica;
+	background-color:  #f1f1f1;
+	width: 120px;
+	margin-top: 15px;
+
+}
+
+#options div{
+	border-bottom:1px solid;
+}
+
+.check1{
+	margin-left: 42px;
+	border-left: 1px solid;
+}
+
+.check2{
+	margin-left: 55px;
+	border-left: 1px solid;
+}
+.check3{
+	margin-left: 22px ;
+	border-left: 1px solid;
+}
+
+.check4{
+	border-left: 1px solid;
+	margin-left: 1px ;
+}
+
+#options div:hover{
+background-color:  #DFE4E2;
+}
+
+#options div:focus{
+background-color:  #DFE4E2;
+}
