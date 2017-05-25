@@ -20,13 +20,13 @@ button{
 
 }
 button:hover{
-	background: #444B4E;
+	background: #4D7BB4;
 
     color: white;
 }
 
  button:focus {
-    background: #444B4E;
+    background: #4D7BB4;
     color: white;
   }
 
@@ -59,13 +59,15 @@ button:hover{
 }*/
 
 #grantl{
-	background-color: #D6DAD9;
+	background-color: #6C9FDE;
+	color:white;
 }
 
 
 
 .wrap-principals,.wrap-Seconds {
-	background-color:#D6DAD9;
+	background-color:#6C9FDE;
+	color:white;
 
 }
 
@@ -106,7 +108,7 @@ button:hover{
 
 #options{
 	font-family: helvetica;
-	background-color:  #EBEFEE;
+	background-color:  #f1f1f1;
 	width: 120px;
 	margin-top: 15px;
 
